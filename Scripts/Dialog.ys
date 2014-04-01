@@ -1,0 +1,8 @@
+using System.Windows.Forms;
+
+static void Main(IYnote ynote)
+{
+    var dlg = new Form();
+    dlg.Controls.Add(new TextBox());
+    dlg.ShowDialog();
+}

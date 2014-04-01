@@ -1,0 +1,11 @@
+<macros>
+<item char='13' key='Ctrl+None' />
+<item char='13' key='Ctrl+None' />
+<item char='13' key='Ctrl+None' />
+<item key='Ctrl+ControlKey' />
+<item key='Ctrl+Back' />
+<item char='127' key='Ctrl+None' />
+<item char='127' key='Ctrl+None' />
+<item char='127' key='Ctrl+None' />
+<item key='Ctrl+ControlKey' />
+</macros>

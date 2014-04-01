@@ -1,0 +1,48 @@
+// PrettyXml.ys
+// Formats an Xml Document
+using SS.Ynote.Classic.UI;
+
+static void Main(IYnote ynote)
+{
+    var edit = ynote.Panel.ActiveDocument as Editor;
+    edit.Tb.Text = PrettyXml(edit.Tb.Text);
+}
+private static string PrettyXml(string xml)
+{
+    var result = "";
+    
+    var mStream = new MemoryStream();
+    var writer = new XmlTextWriter(mStream, Encoding.Unicode);
+    var document = new XmlDocument();
+    
+    try
+    {
+        // Load the XmlDocument with the XML.
+        document.LoadXml(xml);
+        
+        writer.Formatting = Formatting.Indented;
+        
+        // Write the XML into a formatting XmlTextWriter
+        document.WriteContentTo(writer);
+        writer.Flush();
+        mStream.Flush();
+        
+        // Have to rewind the MemoryStream in order to read
+        // its contents.
+        mStream.Position = 0;
+        
+        // Read MemoryStream contents into a StreamReader.
+        var sReader = new StreamReader(mStream);
+        
+        // Extract the text from the StreamReader.
+        result = sReader.ReadToEnd();
+    }
+    catch (XmlException)
+    {
+    }
+    
+    mStream.Close();
+    writer.Close();
+    
+    return result;
+}

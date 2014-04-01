@@ -1,0 +1,1 @@
+NCalc.dll goes in the Ynote Directory and Calculate.ys goes in the \Scripts\ Directory

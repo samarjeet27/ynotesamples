@@ -1,0 +1,11 @@
+// YnoteScript Hello World Example
+using SS.Ynote.Classic;
+using SS.Ynote.Classic.UI;
+
+static void Main(IYnote ynote)
+{
+    // get the active document
+    var edit = ynote.Panel.ActiveDocument as Editor;
+    // insert text into the active document's texTbox
+    edit.Tb.InsertText("Hello, World!");
+}

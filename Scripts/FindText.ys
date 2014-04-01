@@ -1,0 +1,15 @@
+using SS.Ynote.Classic;
+using SS.Ynote.Classic.UI;
+using System.Text;
+using System.Windows.Forms;
+
+static void Main(IYnote ynote)
+{
+    var edit = ynote.Panel.ActiveDocument as Editor;
+    // declare stringbuilder
+    var builder = new StringBuilder();
+    // get ranges of text that match the regex
+    foreach(var item in edit.Tb.GetRanges(@"(?i)<a([^>]+)>(.+?)</a>"))
+        builder.Append(string.Format("Line : {0} Column : {1} Text : {2}", item.Start.iLine, item.Start.iChar, item.Text));
+    MessageBox.Show(builder.ToString());
+}

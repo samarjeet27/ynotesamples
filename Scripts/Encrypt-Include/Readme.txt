@@ -1,0 +1,1 @@
+Encrypt.ys goes in the \Scripts folder and Encrypt.ys.include goes in the Ynote Directory

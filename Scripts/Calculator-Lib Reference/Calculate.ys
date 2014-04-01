@@ -1,0 +1,12 @@
+//css_reference NCalc.dll
+using SS.Ynote.Classic.UI;
+
+static void Main(IYnote ynote)
+{
+    var activeDoc = ynote.Panel.ActiveDocument as Editor;
+    // return if no document is loaded
+    if(activeDoc == null) return;
+    var expr = new Expression(activeDoc.tb.SelectedText);
+    // tb = TextBox
+    activeDoc.Tb.SelectedText = expr.Evaluate();
+}
