@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
-    <YnoteSyntax>
-        <!-- Tells that the Comment Prefix is '//' and the
+<YnoteSyntax>
+  <!-- Tells that the Comment Prefix is '//' and the
             Extensions are .test and .TEST (seperated by the '|') character -->
-            <Syntax CommentPrefix="//" Extensions=".test|.TEST"/>
-        <!-- Tells ynote the brackets to be highlighted -->
-        <Brackets Left="(" Right=")" Left2="[" Right2="]"/>
-        <!-- 
+  <Syntax CommentPrefix="//" Extensions=".test|.TEST" />
+  <!-- Tells ynote the brackets to be highlighted -->
+  <Brackets Left="(" Right=")" Left2="[" Right2="]" />
+  <!-- 
             The Syntax Rules 
             Structure : <Rule Type={Specifies the Style to be applied} 
             Options={Regex Options} Regex={The Regex which will match}/>
         -->
-        <Rule Type="Comment" Options="Multiline" Regex="//.*$"></Rule>
-        <Rule Type="String" Options="Multiline" Regex="&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;|&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;|''|&quot;&quot;.*?&quot;&quot;|(?&lt;!@)(?&lt;range&gt;&quot;&quot;.*?[^\\]&quot;&quot;)|'.*?[^\\]'"></Rule>
-        <Rule Type="Keyword">\b(using|void|public|private|static|class|interface|enum|return|int|string|bool|double|float)\b</Rule>
-        <Rule Type="Keyword2">\b(true|false)\b</Rule>
-        <!-- The Folding Rules -->
-        <Folding Start="{" End="}" Options="None"></Folding>
-    </YnoteSyntax>
+  <Rule Type="Comment" Options="Multiline" Regex="//.*$" />
+  <Rule Type="String" Options="Multiline" Regex="&quot;&quot;&quot;&quot;|&quot;&quot;|''|&quot;.*?&quot;|(?&lt;!@)(?&lt;range&gt;&quot;.*?[^\\]&quot;)|'.*?[^\\]'" />
+  <Rule Type="Keyword" Regex="\b(using|void|public|private|static|class|interface|enum|return|int|string|bool|double|float)\b" />
+  <Rule Type="Keyword2" Regex="\b(true|false)\b" />
+  <!-- The Folding Rules -->
+  <Folding Start="{" End="}" Options="None" />
+</YnoteSyntax>
