@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.Composition;
 using System.Windows.Forms;
 
@@ -9,13 +9,15 @@ namespace HelloPlugin
         FileMenu = 0,
         EditMenu = 1,
         ViewMenu = 2,
-        ToolsMenu = 3,
-        MacrosMenu = 4
+        GotoMenu = 3,
+        ToolsMenu = 4,
+        ProjectMenu = 5,
+        MacrosMenu = 6,
+        HelpMenu = 7
     }
     [InheritedExport(typeof(IYnotePlugin))]
     public class MyPlugin : IYnotePlugin
     {
-
         public void Main(IYnote ynote)
         {
             var m = new MenuItem();
