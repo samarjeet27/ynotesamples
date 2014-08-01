@@ -1,0 +1,52 @@
+using SS.Ynote.Classic.UI;
+using System.Diagnostics;
+using WeifenLuo.WinFormsUI.Docking;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+
+static class CmdBuild
+{
+    // Run Script Task to execute from command line
+    public static void RunTask(string[] arguments, IYnote ynote)
+    {
+        if(arguments.Length < 2)
+            return;
+        var info = new ProcessStartInfo(arguments[0],arguments[1]);
+        if(arguments.Length > 2 && arguments[2] == "false"){
+        Process.Start(info);
+    }
+    else{
+        info.CreateNoWindow = true;
+        info.WindowStyle = ProcessWindowStyle.Hidden;
+        info.RedirectStandardOutput = true;
+        info.RedirectStandardError = true;
+        info.UseShellExecute = false;
+        var proc = Process.Start(info);
+        string output = "";
+        string error = "";
+        using(var reader = proc.StandardOutput){
+            output = reader.ReadToEnd();
+        }
+        using(var erReader = proc.StandardError){
+            error = erReader.ReadToEnd();
+        }
+        string message = "Build Finished\r\n";
+        if(string.IsNullOrEmpty(error))
+            ShowOutput(message+output, ynote.Panel);
+        else
+            ShowOutput(message+error,ynote.Panel);}
+}
+
+static void ShowOutput(string message, DockPanel panel){
+    BuildOutput buildOutput=null;
+    var docs = panel.Contents.OfType<BuildOutput>();
+    if(docs.Count() > 0)
+        buildOutput = docs.First();
+    else
+        buildOutput = new BuildOutput();
+    buildOutput.AddOutput(message);
+    buildOutput.Show(panel, DockState.DockBottom);
+    buildOutput.GoToEnd();
+}
+}

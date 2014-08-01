@@ -1,0 +1,9 @@
+using SS.Ynote.Classic;
+using System.Windows.Forms;
+
+static void Main(IYnote ynote)
+{
+    // ask for input
+    // method AskInput(caption, GotInputEventHandler)
+    ynote.AskInput("Enter:", (o, args) => MessageBox.Show(args.GetFormattedInput()));
+}

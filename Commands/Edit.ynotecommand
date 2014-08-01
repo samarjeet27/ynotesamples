@@ -1,0 +1,30 @@
+using SS.Ynote.Classic;
+using SS.Ynote.Classic.UI;
+
+static ICommand GetCommand (IYnote ynote) 
+{
+    return new EditCommand();
+}
+public class EditCommand : ICommand
+{
+    public string Key
+    {
+        get { return "Edit"; }
+    }
+    
+    public string[] Commands
+    {
+        get { return new string[]{"Cut","Copy","Paste"}; }
+    }
+    
+    public void ProcessCommand(string val, IYnote ynote)
+    {
+        var ae = ynote.Panel.ActiveDocument as Editor;
+        if(val == "Cut")
+            ae.Tb.Cut();
+        else if(val == "Copy")
+            ae.Tb.Copy();
+        else if(val == "Paste")
+            ae.Tb.Paste();
+    }
+}

@@ -13,7 +13,7 @@
   <Style Name="TagName" Color="#F9EE98" Font="Regular" />
   <Style Name="ClassName" Color="#9B703F" Font="Bold" />
   <Style Name="FunctionName" Color="#9B703F" Font="Regular" />
-  <Style Name="FunctionArgument" Color="#9B5C2E" Font="Regular" />
+  <Style Name="FunctionArgument" Color="#7486A6" Font="Regular" />
   <Style Name="Punctuation" Color="#C0C0C0" Font="Regular" />
   <Style Name="AttributeName" Color="#CDA869" Font="Regular" />
   <Style Name="AttributeValue" Color="#8F9D69" Font="Regular" />

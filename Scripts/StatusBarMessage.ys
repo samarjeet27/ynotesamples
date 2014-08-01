@@ -1,0 +1,7 @@
+using SS.Ynote.Classic;
+
+static void Main(IYnote ynote){
+    string message = "Hello, Ynote!!";
+    int timeout = 1000;
+    ynote.Trace(message, timeout);
+}

@@ -1,0 +1,9 @@
+// Run Script to Start Notepad
+{
+  // Path of the task and arguments (task specefic)
+  "RunScripts\\Tasks\\Cmd": [
+    "notepad.exe",
+    "$source",
+    "false"
+  ]
+}

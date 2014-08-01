@@ -1,0 +1,12 @@
+// mkdir.runtask
+using System.IO;
+
+// Cmd Run Script Task
+public void RunTask(string[] arguments)
+{
+    if(arguments.Length == 0)
+        return;
+    string dir = arguments[0];
+    if(!Directory.Exists(dir))
+        Directory.CreateDirectory(dir);
+}
